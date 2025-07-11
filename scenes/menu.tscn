@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://gijgvdq83yv0"]
+
+[ext_resource type="Texture2D" uid="uid://u274katkmqk8" path="res://assets/title.png" id="1_2h66m"]
+[ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="2_doo7r"]
+[ext_resource type="PackedScene" uid="uid://dldjhdh5fnajy" path="res://scenes/panel.tscn" id="3_hkkx5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7elcx"]
+font = ExtResource("2_doo7r")
+font_size = 13
+font_color = Color(0.368627, 0.921569, 0.968627, 1)
+
+[node name="Menu" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0.0784314, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 48)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2h66m")
+
+[node name="Text1" type="Label" parent="."]
+offset_top = 457.0
+offset_right = 640.0
+offset_bottom = 480.0
+text = "made by Qwatrum - 2025"
+label_settings = SubResource("LabelSettings_7elcx")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Row1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PathPilot" parent="Row1" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 107.0
+offset_right = 167.0
+offset_bottom = 203.0
+title = "PathPilot"
+image_path = "1.jpeg"
+
+[node name="Zeroed" parent="Row1" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 107.0
+offset_right = 301.0
+offset_bottom = 203.0
+title = "Zeroed"
+image_path = "2.png"
+
+[node name="idk" parent="Row1" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 107.0
+offset_right = 435.0
+offset_bottom = 203.0
+title = "idk"
+image_path = "3.jpg"
+
+[node name="Settings" parent="Row1" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 107.0
+offset_right = 569.0
+offset_bottom = 203.0
+title = "Settings"
+image_path = "4.jpg"
+
+[node name="Row2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 150.0
+offset_right = 40.0
+offset_bottom = 190.0
+
+[node name="PathPilot" parent="Row2" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 107.0
+offset_right = 167.0
+offset_bottom = 203.0
+title = "PathPilot"
+image_path = "5.png"
+
+[node name="Zeroed" parent="Row2" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 107.0
+offset_right = 301.0
+offset_bottom = 203.0
+title = "Zeroed"
+image_path = "6.png"
+
+[node name="idk" parent="Row2" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 107.0
+offset_right = 435.0
+offset_bottom = 203.0
+title = "idk"
+image_path = "7.png"
+
+[node name="Settings" parent="Row2" instance=ExtResource("3_hkkx5")]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 107.0
+offset_right = 569.0
+offset_bottom = 203.0
+title = "Settings"
+image_path = "8.png"
