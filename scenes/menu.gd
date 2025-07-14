@@ -23,7 +23,7 @@ func save_info_shown():
 var selector_x = 0
 var selector_y = 0
 
-var buttons = [["pathpilot", "zeroed", "idk", "idkv2"],["achievements", "info"]]
+var buttons = [["pathpilot", "zeroed", "neonrush", "echovector"],["achievements", "info"]]
 
 func _ready():
 	dir_absolute(save_file_path)

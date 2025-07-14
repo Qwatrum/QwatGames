@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://6mied8brcder"]
+
+[ext_resource type="Script" path="res://scenes/EchoVector/arena_card.gd" id="1_nkrpb"]
+[ext_resource type="FontFile" uid="uid://cv6tfhygx5lxx" path="res://fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="1_q688g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_846pu"]
+bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="Theme" id="Theme_frxyv"]
+Panel/styles/panel = SubResource("StyleBoxFlat_846pu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ms2rn"]
+font = ExtResource("1_q688g")
+font_size = 32
+
+[node name="ArenaCard" type="Panel"]
+offset_right = 200.0
+offset_bottom = 256.0
+theme = SubResource("Theme_frxyv")
+script = ExtResource("1_nkrpb")
+
+[node name="Arena" type="Label" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 39.0
+text = "Arena: 1"
+label_settings = SubResource("LabelSettings_ms2rn")
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_top = 66.0
+offset_right = 200.0
+offset_bottom = 128.0
+text = "Best score:"
+label_settings = SubResource("LabelSettings_ms2rn")
+horizontal_alignment = 1
+
+[node name="Play" type="Label" parent="."]
+layout_mode = 0
+offset_top = 174.0
+offset_right = 200.0
+offset_bottom = 229.0
+text = "Play"
+label_settings = SubResource("LabelSettings_ms2rn")
+horizontal_alignment = 1
+
+[node name="Selector" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 212.0
+offset_right = 130.0
+offset_bottom = 215.0
+color = Color(0.368627, 0.921569, 0.968627, 1)

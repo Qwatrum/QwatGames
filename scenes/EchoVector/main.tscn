@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://wngus26vipon"]
+
+[ext_resource type="Script" path="res://scenes/EchoVector/main.gd" id="1_ri2d0"]
+[ext_resource type="FontFile" uid="uid://dljvyga5k4cxa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="1_ywo4m"]
+[ext_resource type="PackedScene" uid="uid://6mied8brcder" path="res://scenes/EchoVector/arena_card.tscn" id="2_71mp5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5fnno"]
+font = ExtResource("1_ywo4m")
+font_size = 41
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ri2d0")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_right = 640.0
+offset_bottom = 50.0
+text = "EchoVector"
+label_settings = SubResource("LabelSettings_5fnno")
+horizontal_alignment = 1
+
+[node name="ArenaCard" parent="." instance=ExtResource("2_71mp5")]
+offset_left = 220.0
+offset_top = 100.0
+offset_right = 420.0
+offset_bottom = 356.0
+
+[node name="RightArrow" type="Polygon2D" parent="."]
+position = Vector2(454, 240)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(0, -11, 0, 11, 17, 0)
+
+[node name="LeftArrow" type="Polygon2D" parent="."]
+position = Vector2(186, 240)
+scale = Vector2(-2, -2)
+polygon = PackedVector2Array(0, -11, 0, 11, 17, 0)

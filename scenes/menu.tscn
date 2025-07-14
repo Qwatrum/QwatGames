@@ -79,23 +79,23 @@ title = "Zeroed"
 image_path = "2.png"
 color = "aaaaaa"
 
-[node name="idk" parent="Row1" instance=ExtResource("3_hkkx5")]
+[node name="NeonRush" parent="Row1" instance=ExtResource("3_hkkx5")]
 layout_mode = 0
 offset_left = 339.0
 offset_top = 107.0
 offset_right = 435.0
 offset_bottom = 203.0
-title = "idk"
+title = "NeonRush"
 image_path = "3.jpg"
 color = "12ef87"
 
-[node name="idkV2" parent="Row1" instance=ExtResource("3_hkkx5")]
+[node name="EchoVector" parent="Row1" instance=ExtResource("3_hkkx5")]
 layout_mode = 0
 offset_left = 473.0
 offset_top = 107.0
 offset_right = 569.0
 offset_bottom = 203.0
-title = "idk v2"
+title = "EchoVector"
 image_path = "4.jpg"
 color = "534781"
 
