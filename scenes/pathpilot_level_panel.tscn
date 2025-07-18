@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckodma6uf8r4f"]
+
+[ext_resource type="Script" path="res://scenes/pathpilot_level_panel.gd" id="1_358lv"]
+[ext_resource type="FontFile" uid="uid://dljvyga5k4cxa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="3_qkjxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arsl8"]
+bg_color = Color(0.305882, 0.466667, 0, 1)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0, 0.286275, 0.137255, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_okbgq"]
+Panel/styles/panel = SubResource("StyleBoxFlat_arsl8")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m23hk"]
+font = ExtResource("3_qkjxl")
+font_size = 64
+
+[node name="Panel" type="Panel"]
+offset_right = 96.0
+offset_bottom = 96.0
+theme = SubResource("Theme_okbgq")
+script = ExtResource("1_358lv")
+
+[node name="LevelNumber" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 88.0
+offset_bottom = 84.0
+text = "0"
+label_settings = SubResource("LabelSettings_m23hk")
+horizontal_alignment = 1

@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkm7gvsppl1ar"]
+
+[ext_resource type="Script" path="res://scenes/PathPilot/main.gd" id="1_a8edh"]
+[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="1_f054p"]
+[ext_resource type="Texture2D" uid="uid://dmbane3hcw8ui" path="res://assets/bee.png" id="2_736qf"]
+[ext_resource type="Texture2D" uid="uid://c1724pcqvyxen" path="res://assets/goal.png" id="3_urehd"]
+[ext_resource type="PackedScene" uid="uid://ckodma6uf8r4f" path="res://scenes/pathpilot_level_panel.tscn" id="5_80jb8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bw4c"]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.368627, 0.921569, 0.968627, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_x8b0s"]
+Panel/styles/panel = SubResource("StyleBoxFlat_1bw4c")
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5eln"]
+font = ExtResource("1_f054p")
+font_size = 64
+font_color = Color(0.980392, 0.886275, 0, 1)
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_a8edh")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0.392157, 0.196078, 1)
+
+[node name="Selector" type="Panel" parent="."]
+offset_left = 68.0
+offset_top = 84.0
+offset_right = 170.0
+offset_bottom = 186.0
+theme = SubResource("Theme_x8b0s")
+
+[node name="Title" type="Label" parent="."]
+offset_right = 640.0
+offset_bottom = 59.0
+text = "PathPilot"
+label_settings = SubResource("LabelSettings_g5eln")
+horizontal_alignment = 1
+
+[node name="Row1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+
+[node name="lvl1" parent="Row1" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 107.0
+offset_right = 167.0
+offset_bottom = 203.0
+number = 1
+
+[node name="lvl2" parent="Row1" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 107.0
+offset_right = 301.0
+offset_bottom = 203.0
+number = 2
+
+[node name="lvl3" parent="Row1" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 107.0
+offset_right = 435.0
+offset_bottom = 203.0
+number = 3
+
+[node name="lvl4" parent="Row1" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 107.0
+offset_right = 569.0
+offset_bottom = 203.0
+number = 4
+
+[node name="Row2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 90.0
+offset_right = 40.0
+offset_bottom = 130.0
+
+[node name="lvl5" parent="Row2" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 107.0
+offset_right = 167.0
+offset_bottom = 203.0
+number = 5
+
+[node name="lvl6" parent="Row2" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 107.0
+offset_right = 301.0
+offset_bottom = 203.0
+number = 6
+
+[node name="lvl7" parent="Row2" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 107.0
+offset_right = 435.0
+offset_bottom = 203.0
+number = 7
+
+[node name="lvl8" parent="Row2" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 107.0
+offset_right = 569.0
+offset_bottom = 203.0
+number = 8
+
+[node name="Row3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 200.0
+offset_right = 40.0
+offset_bottom = 240.0
+
+[node name="lvl5" parent="Row3" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 107.0
+offset_right = 167.0
+offset_bottom = 203.0
+number = 9
+
+[node name="lvl6" parent="Row3" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 107.0
+offset_right = 301.0
+offset_bottom = 203.0
+number = 10
+
+[node name="lvl7" parent="Row3" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 107.0
+offset_right = 435.0
+offset_bottom = 203.0
+number = 11
+
+[node name="lvl8" parent="Row3" instance=ExtResource("5_80jb8")]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 107.0
+offset_right = 569.0
+offset_bottom = 203.0
+number = 12
+
+[node name="Bee" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(56, 432)
+rotation = -0.0349066
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_736qf")
+
+[node name="Goal" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(587, 415)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_urehd")

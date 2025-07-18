@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="2_doo7r"]
 [ext_resource type="PackedScene" uid="uid://dldjhdh5fnajy" path="res://scenes/panel.tscn" id="3_hkkx5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bw4c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rex2"]
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
@@ -17,7 +17,7 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [sub_resource type="Theme" id="Theme_aw5fm"]
-Panel/styles/panel = SubResource("StyleBoxFlat_1bw4c")
+Panel/styles/panel = SubResource("StyleBoxFlat_8rex2")
 
 [sub_resource type="LabelSettings" id="LabelSettings_7elcx"]
 font = ExtResource("2_doo7r")
