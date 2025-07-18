@@ -1,0 +1,148 @@
+[gd_scene load_steps=13 format=3 uid="uid://brwem43jf2w26"]
+
+[ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_k7jjs"]
+[ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_b0c64"]
+[ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="3_xx44e"]
+[ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="4_uxie5"]
+[ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="7_ipjyf"]
+[ext_resource type="PackedScene" uid="uid://baffe8luh4r1q" path="res://scenes/PathPilot/spinning_spikes.tscn" id="8_cdoja"]
+[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="10_et53f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
+texture = ExtResource("2_b0c64")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="TileSet" id="TileSet_4431j"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4g3um")
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4k1g"]
+font = ExtResource("10_et53f")
+font_size = 50
+font_color = Color(0.827451, 0, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yquo8"]
+font = ExtResource("10_et53f")
+font_size = 50
+font_color = Color(0, 0.996078, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wquuw"]
+font = ExtResource("10_et53f")
+font_size = 32
+font_color = Color(0, 0.996078, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Level6" type="Node2D"]
+script = ExtResource("1_k7jjs")
+level_number = 6
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0.392157, 0.196078, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_4431j")
+format = 2
+layer_0/tile_data = PackedInt32Array(262150, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 524294, 0, 0, 589830, 0, 0, 655366, 0, 0, 720902, 0, 0, 786438, 0, 0, 851974, 0, 0, 917510, 0, 0, 983046, 0, 0, 1048582, 0, 0, 1114118, 0, 0, 1179654, 0, 0, 1245190, 0, 0, 262151, 0, 0, 1245191, 0, 0, 262152, 0, 0, 1245192, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 1245195, 0, 0, 262156, 0, 0, 1245196, 0, 0, 262157, 0, 0, 1245197, 0, 0, 262158, 0, 0, 1245198, 0, 0, 262159, 0, 0, 1245199, 0, 0, 262160, 0, 0, 1245200, 0, 0, 262161, 0, 0, 1245201, 0, 0, 262162, 0, 0, 1245202, 0, 0, 262163, 0, 0, 1245203, 0, 0, 262164, 0, 0, 1245204, 0, 0, 262165, 0, 0, 1245205, 0, 0, 262166, 0, 0, 1245206, 0, 0, 262167, 0, 0, 1245207, 0, 0, 262168, 0, 0, 1245208, 0, 0, 262169, 0, 0, 327705, 0, 0, 393241, 0, 0, 458777, 0, 0, 524313, 0, 0, 589849, 0, 0, 655385, 0, 0, 720921, 0, 0, 786457, 0, 0, 851993, 0, 0, 917529, 0, 0, 983065, 0, 0, 1048601, 0, 0, 1114137, 0, 0, 1179673, 0, 0, 1245209, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 786450, 0, 0, 655378, 0, 0, 655377, 0, 0, 655376, 0, 0, 589842, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 327700, 0, 0, 393236, 0, 0, 524301, 0, 0, 524302, 0, 0, 458766, 0, 0, 393230, 0, 0, 917514, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 1048588, 0, 0, 1048591, 0, 0, 983055, 0, 0, 786440, 0, 0, 720904, 0, 0, 720905, 0, 0, 851976, 0, 0, 917512, 0, 0, 720907, 0, 0, 720908, 0, 0, 1048597, 0, 0, 983061, 0, 0, 917526, 0, 0, 851990, 0, 0, 1048596, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 917525, 0, 0, 655381, 0, 0, 720917, 0, 0, 720916, 0, 0, 393239, 0, 0, 458775, 0, 0, 524311, 0, 0, 524296, 0, 0, 458760, 0, 0, 327687, 0, 0, 393225, 0, 0, 458761, 0, 0, 327692, 0, 0, 393228, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 458768, 0, 0, 589838, 0, 0, 1114121, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1114122, 0, 0, 1179656, 0, 0, 1179659, 0, 0, 1245193, 0, 0, 1245194, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1114130, 0, 0, 983058, 0, 0, 851981, 0, 0, 1114126, 0, 0, 1114127, 0, 0)
+
+[node name="Goal" parent="." instance=ExtResource("3_xx44e")]
+position = Vector2(470, 370)
+
+[node name="Spikes" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(330, 190)
+
+[node name="Spikes2" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(450, 230)
+rotation = 1.5708
+
+[node name="Spikes3" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(450, 150)
+rotation = -1.5708
+
+[node name="Spikes4" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(430, 130)
+rotation = 1.5708
+
+[node name="Spikes5" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(430, 350)
+rotation = -3.14159
+
+[node name="Spikes6" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(430, 370)
+
+[node name="Spikes7" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(210, 270)
+
+[node name="Spikes8" parent="." instance=ExtResource("4_uxie5")]
+position = Vector2(470, 290)
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource("7_ipjyf")]
+position = Vector2(150, 150)
+scale = Vector2(0.2, 0.2)
+
+[node name="SpinningSpikes" parent="." instance=ExtResource("8_cdoja")]
+position = Vector2(450, 250)
+
+[node name="SpinningSpikes2" parent="." instance=ExtResource("8_cdoja")]
+position = Vector2(470, 190)
+
+[node name="SpinningSpikes3" parent="." instance=ExtResource("8_cdoja")]
+position = Vector2(270, 210)
+
+[node name="SpinningSpikes4" parent="." instance=ExtResource("8_cdoja")]
+position = Vector2(290, 250)
+
+[node name="SpinningSpikes5" parent="." instance=ExtResource("8_cdoja")]
+position = Vector2(150, 330)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 240)
+zoom = Vector2(1.5, 1.5)
+
+[node name="GO" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_j4k1g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WIN" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "You Win"
+label_settings = SubResource("LabelSettings_yquo8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Intro" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "Input navigation
+Press confirm to start"
+label_settings = SubResource("LabelSettings_wquuw")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

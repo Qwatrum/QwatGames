@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://baffe8luh4r1q"]
+
+[ext_resource type="Script" path="res://scenes/PathPilot/spinning_spikes.gd" id="1_q276o"]
+[ext_resource type="Texture2D" uid="uid://buotxx421ln1v" path="res://assets/On (38x38).png" id="1_s48pc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p4pp"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxt2p"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y170y"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1dwd"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h0as"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcx57"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh3ah"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb2lv"]
+atlas = ExtResource("1_s48pc")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icl34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p4pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxt2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y170y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1dwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h0as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcx57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh3ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb2lv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejvyd"]
+
+[node name="SpinningSpikes" type="Node2D"]
+script = ExtResource("1_q276o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_icl34")
+autoplay = "default"
+frame_progress = 0.546295
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ejvyd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

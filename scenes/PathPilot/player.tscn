@@ -9,7 +9,7 @@ radius = 49.0102
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06yhd"]
 size = Vector2(99, 99)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_y5wi7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

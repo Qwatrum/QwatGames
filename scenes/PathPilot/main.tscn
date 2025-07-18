@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkm7gvsppl1ar"]
+[gd_scene load_steps=10 format=3 uid="uid://dkm7gvsppl1ar"]
 
 [ext_resource type="Script" path="res://scenes/PathPilot/main.gd" id="1_a8edh"]
 [ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="1_f054p"]
 [ext_resource type="Texture2D" uid="uid://dmbane3hcw8ui" path="res://assets/bee.png" id="2_736qf"]
 [ext_resource type="Texture2D" uid="uid://c1724pcqvyxen" path="res://assets/goal.png" id="3_urehd"]
 [ext_resource type="PackedScene" uid="uid://ckodma6uf8r4f" path="res://scenes/pathpilot_level_panel.tscn" id="5_80jb8"]
+[ext_resource type="Texture2D" uid="uid://bopb5lr2tougo" path="res://assets/Spikes_ev.png" id="6_mrv1x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bw4c"]
 border_width_left = 8
@@ -178,3 +179,9 @@ texture_filter = 1
 position = Vector2(587, 415)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_urehd")
+
+[node name="SpikesEv" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(263, 440)
+scale = Vector2(5, 5)
+texture = ExtResource("6_mrv1x")

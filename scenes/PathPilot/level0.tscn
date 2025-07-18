@@ -1,13 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://doer2jqnyu38a"]
+[gd_scene load_steps=16 format=3 uid="uid://xu028wj1jq7l"]
 
-[ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_681yk"]
-[ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_gwsnk"]
-[ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="3_t3rey"]
-[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_aa1ux"]
-[ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="6_upji7"]
+[ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_xlx83"]
+[ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="3_hpmwn"]
+[ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="4_0ic1p"]
+[ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="5_22cp1"]
+[ext_resource type="PackedScene" uid="uid://bfg6myx10ergr" path="res://scenes/PathPilot/Gem.tscn" id="6_xn582"]
+[ext_resource type="PackedScene" uid="uid://d4ms00wsemjmb" path="res://scenes/PathPilot/lever.tscn" id="7_ivatq"]
+[ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="8_cs3uj"]
+[ext_resource type="PackedScene" uid="uid://baffe8luh4r1q" path="res://scenes/PathPilot/spinning_spikes.tscn" id="9_i2xj7"]
+[ext_resource type="PackedScene" uid="uid://cqfeovmrrfudg" path="res://scenes/PathPilot/hideable_box.tscn" id="10_0ehiu"]
+[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="11_v0pe4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
-texture = ExtResource("2_gwsnk")
+texture = ExtResource("3_hpmwn")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -20,29 +25,28 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4g3um")
 
 [sub_resource type="LabelSettings" id="LabelSettings_j4k1g"]
-font = ExtResource("5_aa1ux")
+font = ExtResource("11_v0pe4")
 font_size = 50
 font_color = Color(0.827451, 0, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yquo8"]
-font = ExtResource("5_aa1ux")
+font = ExtResource("11_v0pe4")
 font_size = 50
 font_color = Color(0, 0.996078, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wquuw"]
-font = ExtResource("5_aa1ux")
+font = ExtResource("11_v0pe4")
 font_size = 32
 font_color = Color(0, 0.996078, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_681yk")
-level_number = 1
+[node name="Level" type="Node2D"]
+script = ExtResource("1_xlx83")
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -53,14 +57,31 @@ color = Color(0, 0.392157, 0.196078, 1)
 texture_filter = 1
 tile_set = SubResource("TileSet_4431j")
 format = 2
-layer_0/tile_data = PackedInt32Array(655371, 0, 0, 720907, 0, 0, 786443, 0, 0, 851979, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 720916, 0, 0, 786452, 0, 0, 851988, 0, 0, 917524, 0, 0, 851983, 0, 0, 786450, 0, 0, 720914, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 720910, 0, 0, 786449, 0, 0)
+layer_0/tile_data = PackedInt32Array(524299, 0, 0)
 
-[node name="Goal" parent="." instance=ExtResource("6_upji7")]
-position = Vector2(390, 230)
+[node name="Goal" parent="." instance=ExtResource("4_0ic1p")]
+position = Vector2(270, 210)
 
-[node name="Player" parent="." instance=ExtResource("3_t3rey")]
-position = Vector2(250, 270)
+[node name="Spikes" parent="." instance=ExtResource("5_22cp1")]
+position = Vector2(330, 190)
+
+[node name="Gem" parent="." instance=ExtResource("6_xn582")]
+position = Vector2(310, 190)
+
+[node name="Lever" parent="." instance=ExtResource("7_ivatq")]
+position = Vector2(250, 190)
+
+[node name="Player" parent="." instance=ExtResource("8_cs3uj")]
+position = Vector2(250, 210)
 scale = Vector2(0.2, 0.2)
+
+[node name="SpinningSpikes" parent="." instance=ExtResource("9_i2xj7")]
+position = Vector2(270, 190)
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="HideableBox" parent="Boxes" instance=ExtResource("10_0ehiu")]
+position = Vector2(290, 190)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 240)

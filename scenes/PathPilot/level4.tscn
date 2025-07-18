@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://doer2jqnyu38a"]
+[gd_scene load_steps=12 format=3 uid="uid://bcflvcwiv83sa"]
 
-[ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_681yk"]
-[ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_gwsnk"]
-[ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="3_t3rey"]
-[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_aa1ux"]
-[ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="6_upji7"]
+[ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_3fyc1"]
+[ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_l3f6i"]
+[ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="3_vfjmm"]
+[ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="4_paaqo"]
+[ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="5_p4c2s"]
+[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="6_n1olo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
-texture = ExtResource("2_gwsnk")
+texture = ExtResource("2_l3f6i")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -20,29 +21,29 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4g3um")
 
 [sub_resource type="LabelSettings" id="LabelSettings_j4k1g"]
-font = ExtResource("5_aa1ux")
+font = ExtResource("6_n1olo")
 font_size = 50
 font_color = Color(0.827451, 0, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yquo8"]
-font = ExtResource("5_aa1ux")
+font = ExtResource("6_n1olo")
 font_size = 50
 font_color = Color(0, 0.996078, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wquuw"]
-font = ExtResource("5_aa1ux")
+font = ExtResource("6_n1olo")
 font_size = 32
 font_color = Color(0, 0.996078, 0, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_681yk")
-level_number = 1
+[node name="Level4" type="Node2D"]
+script = ExtResource("1_3fyc1")
+level_number = 4
 
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 640.0
@@ -53,14 +54,25 @@ color = Color(0, 0.392157, 0.196078, 1)
 texture_filter = 1
 tile_set = SubResource("TileSet_4431j")
 format = 2
-layer_0/tile_data = PackedInt32Array(655371, 0, 0, 720907, 0, 0, 786443, 0, 0, 851979, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 720916, 0, 0, 786452, 0, 0, 851988, 0, 0, 917524, 0, 0, 851983, 0, 0, 786450, 0, 0, 720914, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 720910, 0, 0, 786449, 0, 0)
+layer_0/tile_data = PackedInt32Array(524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 589835, 0, 0, 720907, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 851987, 0, 0, 917523, 0, 0, 983059, 0, 0, 1048595, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 917527, 0, 0, 851991, 0, 0, 786455, 0, 0, 720919, 0, 0, 655383, 0, 0, 524311, 0, 0, 589847, 0, 0, 524310, 0, 0, 524309, 0, 0, 524308, 0, 0, 524307, 0, 0, 589834, 0, 0, 589833, 0, 0, 655369, 0, 0, 720905, 0, 0, 720906, 0, 0, 786453, 0, 0, 720917, 0, 0, 589845, 0, 0, 589839, 0, 0, 589838, 0, 0, 589837, 0, 0, 655373, 0, 0, 589836, 0, 0, 655378, 0, 0, 720912, 0, 0, 917526, 0, 0, 983062, 0, 0, 1048598, 0, 0)
 
-[node name="Goal" parent="." instance=ExtResource("6_upji7")]
-position = Vector2(390, 230)
+[node name="Goal" parent="." instance=ExtResource("3_vfjmm")]
+position = Vector2(230, 210)
 
-[node name="Player" parent="." instance=ExtResource("3_t3rey")]
-position = Vector2(250, 270)
+[node name="Spikes" parent="." instance=ExtResource("4_paaqo")]
+position = Vector2(410, 251)
+rotation = 1.5708
+
+[node name="Spikes2" parent="." instance=ExtResource("4_paaqo")]
+position = Vector2(430, 290)
+rotation = 4.71239
+
+[node name="Player" parent="." instance=ExtResource("5_p4c2s")]
+position = Vector2(430, 311)
 scale = Vector2(0.2, 0.2)
+
+[node name="Spikes3" parent="." instance=ExtResource("4_paaqo")]
+position = Vector2(310, 230)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 240)

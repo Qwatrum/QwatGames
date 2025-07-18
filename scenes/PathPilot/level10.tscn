@@ -1,0 +1,180 @@
+[gd_scene load_steps=16 format=3 uid="uid://cpw7ysbh3b6dg"]
+
+[ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_ehjr8"]
+[ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_df6t4"]
+[ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="3_7q5wn"]
+[ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="4_h48m2"]
+[ext_resource type="PackedScene" uid="uid://bfg6myx10ergr" path="res://scenes/PathPilot/Gem.tscn" id="5_rcv74"]
+[ext_resource type="PackedScene" uid="uid://d4ms00wsemjmb" path="res://scenes/PathPilot/lever.tscn" id="6_mbypp"]
+[ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="7_rrbfg"]
+[ext_resource type="PackedScene" uid="uid://baffe8luh4r1q" path="res://scenes/PathPilot/spinning_spikes.tscn" id="8_egrkh"]
+[ext_resource type="PackedScene" uid="uid://cqfeovmrrfudg" path="res://scenes/PathPilot/hideable_box.tscn" id="9_dhux0"]
+[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="10_ai2hp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
+texture = ExtResource("2_df6t4")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="TileSet" id="TileSet_4431j"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4g3um")
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4k1g"]
+font = ExtResource("10_ai2hp")
+font_size = 50
+font_color = Color(0.827451, 0, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yquo8"]
+font = ExtResource("10_ai2hp")
+font_size = 50
+font_color = Color(0, 0.996078, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wquuw"]
+font = ExtResource("10_ai2hp")
+font_size = 32
+font_color = Color(0, 0.996078, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Level10" type="Node2D"]
+script = ExtResource("1_ehjr8")
+level_number = 10
+number_of_gems = 4
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0.392157, 0.196078, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_4431j")
+format = 2
+layer_0/tile_data = PackedInt32Array(262151, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 524295, 0, 0, 589831, 0, 0, 655367, 0, 0, 720903, 0, 0, 786439, 0, 0, 851975, 0, 0, 917511, 0, 0, 983047, 0, 0, 1048583, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 327706, 0, 0, 393242, 0, 0, 458778, 0, 0, 524314, 0, 0, 589850, 0, 0, 655386, 0, 0, 720922, 0, 0, 786458, 0, 0, 851994, 0, 0, 983066, 0, 0, 1048602, 0, 0, 1114138, 0, 0, 786441, 0, 0, 720905, 0, 0, 655369, 0, 0, 589833, 0, 0, 524297, 0, 0, 458761, 0, 0, 393225, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393238, 0, 0, 393239, 0, 0, 458775, 0, 0, 524311, 0, 0, 589847, 0, 0, 655383, 0, 0, 720919, 0, 0, 851991, 0, 0, 851990, 0, 0, 851989, 0, 0, 851988, 0, 0, 851987, 0, 0, 851986, 0, 0, 851985, 0, 0, 851984, 0, 0, 851983, 0, 0, 851982, 0, 0, 851981, 0, 0, 851980, 0, 0, 851979, 0, 0, 720907, 0, 0, 655371, 0, 0, 589835, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 589845, 0, 0, 655381, 0, 0, 720917, 0, 0, 720916, 0, 0, 720915, 0, 0, 720914, 0, 0, 720913, 0, 0, 720912, 0, 0, 720911, 0, 0, 720910, 0, 0, 720909, 0, 0, 655373, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 393240, 0, 0, 393241, 0, 0, 1114137, 0, 0, 1114136, 0, 0, 1114135, 0, 0, 1114134, 0, 0, 1114133, 0, 0, 1114132, 0, 0, 1114131, 0, 0, 1114130, 0, 0, 1114129, 0, 0, 1114128, 0, 0, 1114127, 0, 0, 1114126, 0, 0, 1114125, 0, 0, 1114124, 0, 0, 1114123, 0, 0, 1114122, 0, 0, 1114121, 0, 0, 1114120, 0, 0, 1114119, 0, 0)
+
+[node name="Goal" parent="." instance=ExtResource("3_7q5wn")]
+position = Vector2(410, 210)
+
+[node name="Spikes" parent="." instance=ExtResource("4_h48m2")]
+position = Vector2(390, 210)
+
+[node name="Spikes2" parent="." instance=ExtResource("4_h48m2")]
+position = Vector2(510, 110)
+
+[node name="Spikes3" parent="." instance=ExtResource("4_h48m2")]
+position = Vector2(310, 210)
+
+[node name="Spikes4" parent="." instance=ExtResource("4_h48m2")]
+position = Vector2(510, 250)
+rotation = 4.71239
+
+[node name="Gem" parent="." instance=ExtResource("5_rcv74")]
+position = Vector2(410, 190)
+
+[node name="Gem2" parent="." instance=ExtResource("5_rcv74")]
+position = Vector2(510, 190)
+
+[node name="Gem4" parent="." instance=ExtResource("5_rcv74")]
+position = Vector2(490, 110)
+
+[node name="Gem3" parent="." instance=ExtResource("5_rcv74")]
+position = Vector2(290, 330)
+
+[node name="Lever" parent="." instance=ExtResource("6_mbypp")]
+position = Vector2(450, 150)
+
+[node name="Player" parent="." instance=ExtResource("7_rrbfg")]
+position = Vector2(250, 190)
+scale = Vector2(0.2, 0.2)
+
+[node name="SpinningSpikes" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(350, 190)
+
+[node name="SpinningSpikes2" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(210, 130)
+
+[node name="SpinningSpikes3" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(490, 310)
+
+[node name="SpinningSpikes5" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(210, 310)
+
+[node name="SpinningSpikes6" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(190, 310)
+
+[node name="SpinningSpikes7" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(190, 290)
+
+[node name="SpinningSpikes8" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(230, 310)
+
+[node name="SpinningSpikes9" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(190, 270)
+
+[node name="SpinningSpikes10" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(230, 251)
+
+[node name="SpinningSpikes11" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(470, 250)
+
+[node name="SpinningSpikes12" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(530, 290)
+
+[node name="SpinningSpikes4" parent="." instance=ExtResource("8_egrkh")]
+position = Vector2(490, 190)
+
+[node name="Boxes" type="Node2D" parent="."]
+
+[node name="HideableBox" parent="Boxes" instance=ExtResource("9_dhux0")]
+position = Vector2(370, 190)
+
+[node name="HideableBox2" parent="Boxes" instance=ExtResource("9_dhux0")]
+position = Vector2(370, 210)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(339, 240)
+zoom = Vector2(1.4, 1.4)
+
+[node name="GO" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_j4k1g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WIN" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "You Win"
+label_settings = SubResource("LabelSettings_yquo8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Intro" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "Input navigation
+Press confirm to start"
+label_settings = SubResource("LabelSettings_wquuw")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

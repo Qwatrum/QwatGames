@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=3 uid="uid://ib8mxp0q7pyw"]
+
+[ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_3mhwf"]
+[ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_mocvf"]
+[ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="3_6kx3p"]
+[ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="4_0wfci"]
+[ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="7_caa18"]
+[ext_resource type="PackedScene" uid="uid://baffe8luh4r1q" path="res://scenes/PathPilot/spinning_spikes.tscn" id="8_k1t5n"]
+[ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="10_6lps0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
+texture = ExtResource("2_mocvf")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="TileSet" id="TileSet_4431j"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4g3um")
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4k1g"]
+font = ExtResource("10_6lps0")
+font_size = 50
+font_color = Color(0.827451, 0, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yquo8"]
+font = ExtResource("10_6lps0")
+font_size = 50
+font_color = Color(0, 0.996078, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wquuw"]
+font = ExtResource("10_6lps0")
+font_size = 32
+font_color = Color(0, 0.996078, 0, 1)
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Level5" type="Node2D"]
+script = ExtResource("1_3mhwf")
+level_number = 5
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0.392157, 0.196078, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_4431j")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 983049, 0, 0, 917513, 0, 0, 851977, 0, 0, 786441, 0, 0, 720905, 0, 0, 655369, 0, 0, 983054, 0, 0, 720910, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 720913, 0, 0, 786449, 0, 0, 851985, 0, 0, 917521, 0, 0, 983057, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 983062, 0, 0, 917526, 0, 0, 851990, 0, 0, 786454, 0, 0, 524310, 0, 0, 589846, 0, 0, 655382, 0, 0, 720918, 0, 0, 589833, 0, 0, 524297, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 458765, 0, 0, 589835, 0, 0, 655371, 0, 0, 655372, 0, 0, 786444, 0, 0, 720908, 0, 0, 851980, 0, 0, 917516, 0, 0, 983050, 0, 0, 851983, 0, 0, 786447, 0, 0, 917519, 0, 0, 720911, 0, 0, 851988, 0, 0, 851987, 0, 0, 786451, 0, 0, 720916, 0, 0, 720917, 0, 0, 983058, 0, 0, 655378, 0, 0, 983055, 0, 0)
+
+[node name="Goal" parent="." instance=ExtResource("3_6kx3p")]
+position = Vector2(410, 250)
+
+[node name="Spikes" parent="." instance=ExtResource("4_0wfci")]
+position = Vector2(210, 250)
+rotation = 1.5708
+
+[node name="Spikes2" parent="." instance=ExtResource("4_0wfci")]
+position = Vector2(270, 270)
+rotation = 1.5708
+
+[node name="Spikes3" parent="." instance=ExtResource("4_0wfci")]
+position = Vector2(410, 210)
+
+[node name="Player" parent="." instance=ExtResource("7_caa18")]
+position = Vector2(210, 190)
+scale = Vector2(0.2, 0.2)
+
+[node name="SpinningSpikes" parent="." instance=ExtResource("8_k1t5n")]
+position = Vector2(270, 190)
+
+[node name="SpinningSpikes2" parent="." instance=ExtResource("8_k1t5n")]
+position = Vector2(410, 290)
+
+[node name="SpinningSpikes3" parent="." instance=ExtResource("8_k1t5n")]
+position = Vector2(330, 190)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 240)
+zoom = Vector2(2, 2)
+
+[node name="GO" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_j4k1g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WIN" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "You Win"
+label_settings = SubResource("LabelSettings_yquo8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Intro" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+text = "Input navigation
+Press confirm to start"
+label_settings = SubResource("LabelSettings_wquuw")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
