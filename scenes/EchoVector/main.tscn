@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://wngus26vipon"]
+[gd_scene load_steps=6 format=3 uid="uid://wngus26vipon"]
 
 [ext_resource type="Script" path="res://scenes/EchoVector/main.gd" id="1_ri2d0"]
 [ext_resource type="FontFile" uid="uid://dljvyga5k4cxa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="1_ywo4m"]
 [ext_resource type="PackedScene" uid="uid://6mied8brcder" path="res://scenes/EchoVector/arena_card.tscn" id="2_71mp5"]
+[ext_resource type="AudioStream" uid="uid://x5y6gmlpcrny" path="res://music/select.mp3" id="4_cn5us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5fnno"]
 font = ExtResource("1_ywo4m")
@@ -38,3 +39,7 @@ polygon = PackedVector2Array(0, -11, 0, 11, 17, 0)
 position = Vector2(186, 240)
 scale = Vector2(-2, -2)
 polygon = PackedVector2Array(0, -11, 0, 11, 17, 0)
+
+[node name="SelectorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cn5us")
+pitch_scale = 1.35

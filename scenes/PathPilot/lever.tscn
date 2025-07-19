@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4ms00wsemjmb"]
+[gd_scene load_steps=7 format=3 uid="uid://d4ms00wsemjmb"]
 
 [ext_resource type="Texture2D" uid="uid://ccofg4wosa7ir" path="res://assets/lever_Off.png" id="1_1uivj"]
 [ext_resource type="Script" path="res://scenes/PathPilot/lever.gd" id="1_24rn5"]
 [ext_resource type="Texture2D" uid="uid://c1uk1fs7syumh" path="res://assets/lever_on.png" id="2_cdjkv"]
+[ext_resource type="AudioStream" uid="uid://chp3yf0bkdy8y" path="res://music/lever.mp3" id="4_njbl6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7sy3"]
 animations = [{
@@ -33,5 +34,9 @@ frame_progress = 0.874461
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_m4d7c")
+
+[node name="LeverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_njbl6")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

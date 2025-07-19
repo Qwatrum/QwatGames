@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcflvcwiv83sa"]
+[gd_scene load_steps=17 format=3 uid="uid://bcflvcwiv83sa"]
 
 [ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_3fyc1"]
 [ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_l3f6i"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="4_paaqo"]
 [ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="5_p4c2s"]
 [ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="6_n1olo"]
+[ext_resource type="AudioStream" uid="uid://difb7enp7td6t" path="res://music/input.mp3" id="7_yyn74"]
+[ext_resource type="AudioStream" uid="uid://pi3c8rnigb8j" path="res://music/win.mp3" id="8_eg433"]
+[ext_resource type="AudioStream" uid="uid://cisnvddqqvg6e" path="res://music/game-over.mp3" id="9_eno7r"]
+[ext_resource type="AudioStream" uid="uid://vvfl5vewqj84" path="res://music/start.mp3" id="10_lbaye"]
+[ext_resource type="AudioStream" uid="uid://g27cbfy6kpks" path="res://music/background.mp3" id="11_vxpgo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
 texture = ExtResource("2_l3f6i")
@@ -112,3 +117,25 @@ label_settings = SubResource("LabelSettings_wquuw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="GemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yyn74")
+
+[node name="InputSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yyn74")
+pitch_scale = 1.69
+
+[node name="SuccesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_eg433")
+
+[node name="LooseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_eno7r")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lbaye")
+pitch_scale = 0.71
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_vxpgo")
+volume_db = -10.0
+autoplay = true

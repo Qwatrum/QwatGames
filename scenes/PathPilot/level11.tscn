@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkvjyufwd24as"]
+[gd_scene load_steps=21 format=3 uid="uid://bkvjyufwd24as"]
 
 [ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_q6kkm"]
 [ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_bkjcn"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://baffe8luh4r1q" path="res://scenes/PathPilot/spinning_spikes.tscn" id="8_vm46w"]
 [ext_resource type="PackedScene" uid="uid://cqfeovmrrfudg" path="res://scenes/PathPilot/hideable_box.tscn" id="9_j7pue"]
 [ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="10_tanmi"]
+[ext_resource type="AudioStream" uid="uid://difb7enp7td6t" path="res://music/input.mp3" id="11_dmpgc"]
+[ext_resource type="AudioStream" uid="uid://pi3c8rnigb8j" path="res://music/win.mp3" id="12_x33dc"]
+[ext_resource type="AudioStream" uid="uid://cisnvddqqvg6e" path="res://music/game-over.mp3" id="13_3w1bp"]
+[ext_resource type="AudioStream" uid="uid://vvfl5vewqj84" path="res://music/start.mp3" id="14_ookj3"]
+[ext_resource type="AudioStream" uid="uid://g27cbfy6kpks" path="res://music/background.mp3" id="15_6fhsj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
 texture = ExtResource("2_bkjcn")
@@ -219,3 +224,25 @@ label_settings = SubResource("LabelSettings_wquuw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="GemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_dmpgc")
+
+[node name="InputSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_dmpgc")
+pitch_scale = 1.69
+
+[node name="SuccesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_x33dc")
+
+[node name="LooseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_3w1bp")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ookj3")
+pitch_scale = 0.71
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_6fhsj")
+volume_db = -10.0
+autoplay = true

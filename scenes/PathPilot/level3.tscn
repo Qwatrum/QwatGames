@@ -1,11 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://rvs1ry6o8au7"]
+[gd_scene load_steps=17 format=3 uid="uid://rvs1ry6o8au7"]
 
 [ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_uc481"]
 [ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_nppux"]
 [ext_resource type="PackedScene" uid="uid://sdhf1sj0qpso" path="res://scenes/PathPilot/goal.tscn" id="3_akh5b"]
 [ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="4_5x51q"]
+[ext_resource type="AudioStream" uid="uid://difb7enp7td6t" path="res://music/input.mp3" id="7_a3hsy"]
 [ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="7_fl44t"]
+[ext_resource type="AudioStream" uid="uid://pi3c8rnigb8j" path="res://music/win.mp3" id="8_m8qlf"]
+[ext_resource type="AudioStream" uid="uid://cisnvddqqvg6e" path="res://music/game-over.mp3" id="9_l21sg"]
 [ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="10_mhrew"]
+[ext_resource type="AudioStream" uid="uid://vvfl5vewqj84" path="res://music/start.mp3" id="10_uomlu"]
+[ext_resource type="AudioStream" uid="uid://g27cbfy6kpks" path="res://music/background.mp3" id="11_w7hdv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
 texture = ExtResource("2_nppux")
@@ -120,3 +125,25 @@ label_settings = SubResource("LabelSettings_wquuw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="GemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_a3hsy")
+
+[node name="InputSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_a3hsy")
+pitch_scale = 1.69
+
+[node name="SuccesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_m8qlf")
+
+[node name="LooseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_l21sg")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_uomlu")
+pitch_scale = 0.71
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_w7hdv")
+volume_db = -10.0
+autoplay = true

@@ -44,18 +44,22 @@ func _process(delta):
 		if selector_y != 2:
 			selector_y += 1
 			$"Selector".position.y += 110
+			$"SelectorSound".play()
 	if Input.is_action_just_pressed("up"):
 		if selector_y != 0:
 			selector_y -= 1
 			$"Selector".position.y -= 110
+			$"SelectorSound".play()
 	if Input.is_action_just_pressed("left"):
 		if selector_x != 0:
 			selector_x -= 1
 			$"Selector".position.x -= 134
+			$"SelectorSound".play()
 	if Input.is_action_just_pressed("right"):
 		if selector_x != 3:
 			selector_x += 1
 			$"Selector".position.x += 134
+			$"SelectorSound".play()
 
 	
 	if Input.is_action_just_pressed("confirm"):

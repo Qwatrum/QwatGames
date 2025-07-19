@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ib8mxp0q7pyw"]
+[gd_scene load_steps=18 format=3 uid="uid://ib8mxp0q7pyw"]
 
 [ext_resource type="Script" path="res://scenes/PathPilot/level.gd" id="1_3mhwf"]
 [ext_resource type="Texture2D" uid="uid://b8egb5j3odvtf" path="res://assets/wall.png" id="2_mocvf"]
@@ -6,7 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cnrxjsro2q2xo" path="res://scenes/PathPilot/spikes.tscn" id="4_0wfci"]
 [ext_resource type="PackedScene" uid="uid://x88o0yqxnhtw" path="res://scenes/PathPilot/player.tscn" id="7_caa18"]
 [ext_resource type="PackedScene" uid="uid://baffe8luh4r1q" path="res://scenes/PathPilot/spinning_spikes.tscn" id="8_k1t5n"]
+[ext_resource type="AudioStream" uid="uid://difb7enp7td6t" path="res://music/input.mp3" id="8_q4unf"]
+[ext_resource type="AudioStream" uid="uid://pi3c8rnigb8j" path="res://music/win.mp3" id="9_g65e7"]
+[ext_resource type="AudioStream" uid="uid://cisnvddqqvg6e" path="res://music/game-over.mp3" id="10_5vm60"]
 [ext_resource type="FontFile" uid="uid://biwmsktgaj5qa" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="10_6lps0"]
+[ext_resource type="AudioStream" uid="uid://vvfl5vewqj84" path="res://music/start.mp3" id="11_26vwe"]
+[ext_resource type="AudioStream" uid="uid://g27cbfy6kpks" path="res://music/background.mp3" id="12_lnncq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4g3um"]
 texture = ExtResource("2_mocvf")
@@ -122,3 +127,25 @@ label_settings = SubResource("LabelSettings_wquuw")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="GemSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_q4unf")
+
+[node name="InputSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_q4unf")
+pitch_scale = 1.69
+
+[node name="SuccesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_g65e7")
+
+[node name="LooseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5vm60")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_26vwe")
+pitch_scale = 0.71
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_lnncq")
+volume_db = -10.0
+autoplay = true

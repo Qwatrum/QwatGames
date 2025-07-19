@@ -34,6 +34,7 @@ func _physics_process(delta):
 		
 		if not test_move(global_transform, motion):
 			move_and_collide(motion)
+			$"MoveSound".play()
 		else:
 			print("ouch")
 		move_index += 1

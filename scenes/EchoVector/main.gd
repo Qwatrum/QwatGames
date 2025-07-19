@@ -37,6 +37,7 @@ func _process(delta):
 		if arena_selected != number_of_arenas:
 			arena_selected += 1
 			update_arena_card()
+			$"SelectorSound".play()
 			if arena_selected == 5:
 				$"RightArrow".hide()
 				
@@ -45,6 +46,7 @@ func _process(delta):
 		if arena_selected != 1:
 			arena_selected -= 1
 			update_arena_card()
+			$"SelectorSound".play()
 			if arena_selected == 1:
 				$"LeftArrow".hide()
 				

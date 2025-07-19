@@ -38,9 +38,11 @@ func game_over():
 	ended = true
 	$"Camera2D/GO".show()
 	$"Player".started = false
+	$"LooseSound".play()
 
 func gem_collected():
 	gems_collected += 1
+	$"GemSound".play()
 	
 func box_hide(b):
 	for c in $"Boxes".get_children():
@@ -57,28 +59,36 @@ func done():
 	if $"Player".position == $"Goal".position and gems_collected == number_of_gems:
 		$"Player".hide()
 		$"Camera2D/WIN".show()
+		$"SuccesSound".play()
 		if level_number not in completed_levels:
 			completed_levels.append(level_number)
 			save_c_levels()
 		
 	else:
 		$"Camera2D/GO".show()
+		$"LooseSound".play()
+		$"Player".started = false
 
 func _process(delta):
 	
 	if Input.is_action_just_pressed("down"):
 		directions.append(Vector2.DOWN)
+		$"InputSound".play()
 	if Input.is_action_just_pressed("up"):
 		directions.append(Vector2.UP)
+		$"InputSound".play()
 	if Input.is_action_just_pressed("left"):
 		directions.append(Vector2.LEFT)
+		$"InputSound".play()
 	if Input.is_action_just_pressed("right"):
 		directions.append(Vector2.RIGHT)
+		$"InputSound".play()
 	
 	if Input.is_action_just_pressed("confirm"):
 		if not ended:
 			$"Player".directions = directions
 			$"Player".started = true
+			$"StartSound".play()
 		else:
 			get_tree().change_scene_to_file("res://scenes/pathpilot/level"+str(level_number)+".tscn")
 		

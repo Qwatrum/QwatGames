@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://gijgvdq83yv0"]
+[gd_scene load_steps=9 format=3 uid="uid://gijgvdq83yv0"]
 
 [ext_resource type="Texture2D" uid="uid://u274katkmqk8" path="res://assets/title.png" id="1_2h66m"]
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_5gr0e"]
 [ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="2_doo7r"]
 [ext_resource type="PackedScene" uid="uid://dldjhdh5fnajy" path="res://scenes/panel.tscn" id="3_hkkx5"]
+[ext_resource type="AudioStream" uid="uid://x5y6gmlpcrny" path="res://music/select.mp3" id="5_kgxgc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rex2"]
 border_width_left = 8
@@ -125,3 +126,7 @@ offset_bottom = 203.0
 title = "Info"
 image_path = "info.png"
 color = "000014"
+
+[node name="SelectorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kgxgc")
+pitch_scale = 1.35
