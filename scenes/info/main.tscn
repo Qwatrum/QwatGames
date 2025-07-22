@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd2t52jf1ah6h"]
+[gd_scene load_steps=8 format=3 uid="uid://dd2t52jf1ah6h"]
 
 [ext_resource type="Script" path="res://scenes/achievements/main.gd" id="1_cp8a7"]
 [ext_resource type="Texture2D" uid="uid://u274katkmqk8" path="res://assets/title.png" id="2_k3lvw"]
 [ext_resource type="FontFile" uid="uid://7xpcevw7wcuq" path="res://fonts/Rubik/static/Rubik-SemiBold.ttf" id="3_qj5i3"]
+[ext_resource type="AudioStream" uid="uid://x5y6gmlpcrny" path="res://music/select.mp3" id="4_j2q77"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_avo7g"]
 font = ExtResource("3_qj5i3")
@@ -63,3 +64,7 @@ Go back with escape"
 label_settings = SubResource("LabelSettings_31yaa")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="SelectorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_j2q77")
+pitch_scale = 1.35

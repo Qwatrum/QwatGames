@@ -24,7 +24,7 @@ var buttons = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 func _ready():
 	dir_absolute(save_file_path)
 	load_c_levels()
-	
+	$"SelectorSound".play()
 	var x = 1
 	for c in $"Row1".get_children():
 		if x in completed_levels:

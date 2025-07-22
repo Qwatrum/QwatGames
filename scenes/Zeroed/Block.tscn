@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://datbhkno8qjxd"]
+
+[ext_resource type="Script" path="res://scenes/Zeroed/Block.gd" id="1_g3tv3"]
+[ext_resource type="PackedScene" uid="uid://cema5c5emtem7" path="res://scenes/Zeroed/block_part.tscn" id="2_ei8sf"]
+
+[node name="Block" type="Node2D"]
+script = ExtResource("1_g3tv3")
+
+[node name="F1" parent="." instance=ExtResource("2_ei8sf")]
+offset_right = 76.0
+offset_bottom = 76.0
+
+[node name="F2" parent="." instance=ExtResource("2_ei8sf")]
+offset_left = 100.0
+offset_right = 176.0
+offset_bottom = 76.0
+
+[node name="F3" parent="." instance=ExtResource("2_ei8sf")]
+offset_left = 200.0
+offset_right = 276.0
+offset_bottom = 76.0
+
+[node name="F4" parent="." instance=ExtResource("2_ei8sf")]
+offset_top = 100.0
+offset_right = 76.0
+offset_bottom = 176.0
+metadata/_edit_use_anchors_ = true
+
+[node name="F5" parent="." instance=ExtResource("2_ei8sf")]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 176.0
+offset_bottom = 176.0
+
+[node name="F6" parent="." instance=ExtResource("2_ei8sf")]
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 276.0
+offset_bottom = 176.0
+
+[node name="F7" parent="." instance=ExtResource("2_ei8sf")]
+offset_top = 200.0
+offset_right = 76.0
+offset_bottom = 276.0
+
+[node name="F8" parent="." instance=ExtResource("2_ei8sf")]
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 176.0
+offset_bottom = 276.0
+
+[node name="F9" parent="." instance=ExtResource("2_ei8sf")]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 276.0
+offset_bottom = 276.0

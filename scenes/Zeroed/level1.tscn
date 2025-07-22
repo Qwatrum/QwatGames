@@ -1,0 +1,196 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhnomc4jdquxi"]
+
+[ext_resource type="Script" path="res://scenes/Zeroed/level.gd" id="1_jmyem"]
+[ext_resource type="PackedScene" uid="uid://b71l2214kio8e" path="res://scenes/Zeroed/field.tscn" id="1_wcvba"]
+[ext_resource type="AudioStream" uid="uid://x5y6gmlpcrny" path="res://music/select.mp3" id="3_4u2hg"]
+[ext_resource type="PackedScene" uid="uid://datbhkno8qjxd" path="res://scenes/Zeroed/Block.tscn" id="4_uknm3"]
+[ext_resource type="FontFile" uid="uid://deo3p5juw5eqo" path="res://fonts/Rubik/static/Rubik-Light.ttf" id="5_utxum"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_225i5"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="Theme" id="Theme_3xer5"]
+Panel/styles/panel = SubResource("StyleBoxFlat_225i5")
+
+[sub_resource type="LabelSettings" id="LabelSettings_reles"]
+font = ExtResource("5_utxum")
+font_size = 40
+font_color = Color(0, 1, 1, 1)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_jmyem")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0.0784314, 1)
+
+[node name="Fields" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 50.0
+offset_right = 32.0
+offset_bottom = 50.0
+theme = SubResource("Theme_3xer5")
+
+[node name="F1" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 76.0
+
+[node name="F2" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 176.0
+offset_bottom = 76.0
+
+[node name="F3" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 276.0
+offset_bottom = 76.0
+
+[node name="F4" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 300.0
+offset_right = 376.0
+offset_bottom = 76.0
+
+[node name="F5" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 76.0
+offset_bottom = 176.0
+
+[node name="F6" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 176.0
+offset_bottom = 176.0
+
+[node name="F7" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 100.0
+offset_right = 276.0
+offset_bottom = 176.0
+
+[node name="F8" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 100.0
+offset_right = 376.0
+offset_bottom = 176.0
+
+[node name="F9" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 76.0
+offset_bottom = 276.0
+
+[node name="F10" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 176.0
+offset_bottom = 276.0
+
+[node name="F11" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 276.0
+offset_bottom = 276.0
+
+[node name="F12" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 200.0
+offset_right = 376.0
+offset_bottom = 276.0
+
+[node name="F13" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 76.0
+offset_bottom = 376.0
+
+[node name="F14" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 300.0
+offset_right = 176.0
+offset_bottom = 376.0
+
+[node name="F15" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 300.0
+offset_right = 276.0
+offset_bottom = 376.0
+
+[node name="F16" parent="Fields" instance=ExtResource("1_wcvba")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 300.0
+offset_right = 376.0
+offset_bottom = 376.0
+
+[node name="SelectorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4u2hg")
+pitch_scale = 1.35
+
+[node name="VSeparator" type="VSeparator" parent="."]
+offset_left = 438.0
+offset_top = 50.0
+offset_right = 442.0
+offset_bottom = 427.0
+
+[node name="NextUp1" parent="." instance=ExtResource("4_uknm3")]
+position = Vector2(460, 50)
+scale = Vector2(0.4, 0.4)
+
+[node name="NextUp2" parent="." instance=ExtResource("4_uknm3")]
+position = Vector2(460, 184)
+scale = Vector2(0.4, 0.4)
+
+[node name="NextUp3" parent="." instance=ExtResource("4_uknm3")]
+position = Vector2(460, 318)
+scale = Vector2(0.4, 0.4)
+
+[node name="HSeparator" type="HSeparator" parent="."]
+offset_left = 460.0
+offset_top = 169.0
+offset_right = 570.0
+offset_bottom = 173.0
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+offset_left = 460.0
+offset_top = 303.0
+offset_right = 570.0
+offset_bottom = 307.0
+
+[node name="BlockSelector" type="Polygon2D" parent="."]
+position = Vector2(620, 91)
+scale = Vector2(2, 2)
+color = Color(0.368627, 0.921569, 0.968627, 1)
+polygon = PackedVector2Array(0, 0, -14, 7, 0, 14)
+
+[node name="Block" parent="." instance=ExtResource("4_uknm3")]
+position = Vector2(32, 50)
+
+[node name="Completed" type="Label" parent="."]
+offset_left = 425.0
+offset_top = 49.0
+offset_right = 636.0
+offset_bottom = 480.0
+text = "Completed!
+Your score:"
+label_settings = SubResource("LabelSettings_reles")
+horizontal_alignment = 1

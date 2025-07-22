@@ -28,11 +28,14 @@ var buttons = [["pathpilot", "zeroed", "neonrush", "echovector"],["achievements"
 func _ready():
 	dir_absolute(save_file_path)
 	load_info_shown()
+	
 	if not info_shown:
 		info_shown = true
 		save_info_shown()
 		
 		get_tree().change_scene_to_file("res://scenes/info/main.tscn")
+	
+	$"SelectorSound".play()
 
 func _process(delta):
 	if Input.is_action_just_pressed("down"):

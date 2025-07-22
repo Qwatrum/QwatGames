@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c064pshbpivtp"]
+[gd_scene load_steps=6 format=3 uid="uid://c064pshbpivtp"]
 
 [ext_resource type="Texture2D" uid="uid://u274katkmqk8" path="res://assets/title.png" id="1_4r0sa"]
 [ext_resource type="Script" path="res://scenes/achievements/main.gd" id="1_lnobd"]
 [ext_resource type="FontFile" uid="uid://7xpcevw7wcuq" path="res://fonts/Rubik/static/Rubik-SemiBold.ttf" id="2_u400w"]
+[ext_resource type="AudioStream" uid="uid://x5y6gmlpcrny" path="res://music/select.mp3" id="4_ye3d5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_avo7g"]
 font = ExtResource("2_u400w")
@@ -30,3 +31,7 @@ text = "You don't have any achievements yet."
 label_settings = SubResource("LabelSettings_avo7g")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="SelectorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ye3d5")
+pitch_scale = 1.35
