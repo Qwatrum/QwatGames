@@ -14,7 +14,7 @@ func set_pattern(l):
 			fields[i].show()
 			#fields[i].set_color(Color(0.25,0.25,0.7))
 		i += 1
-	print(pattern)
+	#print(pattern)
 
 func get_pattern():
 	return pattern

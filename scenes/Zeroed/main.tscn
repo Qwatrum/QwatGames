@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://casvq541ysl0c"]
+[gd_scene load_steps=12 format=3 uid="uid://casvq541ysl0c"]
 
 [ext_resource type="Script" path="res://scenes/Zeroed/main.gd" id="1_1ep1g"]
 [ext_resource type="FontFile" uid="uid://deo3p5juw5eqo" path="res://fonts/Rubik/static/Rubik-Light.ttf" id="1_6bt4v"]
@@ -8,7 +8,7 @@
 font = ExtResource("1_6bt4v")
 font_size = 48
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbjc1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gpx4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 2
 border_width_top = 2
@@ -21,9 +21,9 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [sub_resource type="Theme" id="Theme_ldaff"]
-Panel/styles/panel = SubResource("StyleBoxFlat_kbjc1")
+Panel/styles/panel = SubResource("StyleBoxFlat_1gpx4")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8so4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3w84j"]
 bg_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
@@ -31,11 +31,19 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
 [sub_resource type="Theme" id="Theme_5xpyx"]
-Panel/styles/panel = SubResource("StyleBoxFlat_p8so4")
+Panel/styles/panel = SubResource("StyleBoxFlat_3w84j")
 
 [sub_resource type="LabelSettings" id="LabelSettings_4y3ns"]
 font = ExtResource("1_6bt4v")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_hinjf"]
+font = ExtResource("1_6bt4v")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_aotxf"]
+font = ExtResource("1_6bt4v")
+font_size = 30
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1ep1g")
@@ -59,27 +67,100 @@ stream = ExtResource("3_dk3ax")
 pitch_scale = 1.35
 
 [node name="Selector" type="Panel" parent="."]
-offset_left = 231.5
+offset_left = 19.0
 offset_top = 219.0
-offset_right = 408.5
+offset_right = 196.0
 offset_bottom = 285.0
 theme = SubResource("Theme_ldaff")
 
-[node name="Play" type="Panel" parent="."]
-offset_left = 232.5
+[node name="Easy" type="Panel" parent="."]
+offset_left = 20.0
 offset_top = 220.0
-offset_right = 407.5
+offset_right = 195.0
 offset_bottom = 284.0
 theme = SubResource("Theme_5xpyx")
 
-[node name="Label" type="Label" parent="Play"]
+[node name="Label" type="Label" parent="Easy"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Play"
+text = "Easy"
 label_settings = SubResource("LabelSettings_4y3ns")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Medium" type="Panel" parent="."]
+offset_left = 232.5
+offset_top = 220.0
+offset_right = 407.5
+offset_bottom = 284.0
+theme = SubResource("Theme_5xpyx")
+
+[node name="Label" type="Label" parent="Medium"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Medium"
+label_settings = SubResource("LabelSettings_4y3ns")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hard" type="Panel" parent="."]
+offset_left = 445.0
+offset_top = 220.0
+offset_right = 620.0
+offset_bottom = 284.0
+theme = SubResource("Theme_5xpyx")
+
+[node name="Label" type="Label" parent="Hard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hard"
+label_settings = SubResource("LabelSettings_4y3ns")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestScore" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 288.0
+offset_right = 165.0
+offset_bottom = 326.0
+text = "Best score:"
+label_settings = SubResource("LabelSettings_hinjf")
+
+[node name="BestScoreEasy" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 346.0
+offset_right = 196.0
+offset_bottom = 383.0
+text = "/"
+label_settings = SubResource("LabelSettings_aotxf")
+horizontal_alignment = 1
+
+[node name="BestScoreMedium" type="Label" parent="."]
+offset_left = 231.5
+offset_top = 346.0
+offset_right = 408.5
+offset_bottom = 383.0
+text = "/"
+label_settings = SubResource("LabelSettings_aotxf")
+horizontal_alignment = 1
+
+[node name="BestScoreHard" type="Label" parent="."]
+offset_left = 444.0
+offset_top = 346.0
+offset_right = 621.0
+offset_bottom = 383.0
+text = "/"
+label_settings = SubResource("LabelSettings_aotxf")
+horizontal_alignment = 1

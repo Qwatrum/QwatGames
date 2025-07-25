@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2c7s6di56xld"]
+
+[ext_resource type="Script" path="res://scenes/how_to/Howto.gd" id="1_pv3eq"]
+[ext_resource type="Texture2D" uid="uid://u274katkmqk8" path="res://assets/title.png" id="1_xoel8"]
+[ext_resource type="FontFile" uid="uid://7xpcevw7wcuq" path="res://fonts/Rubik/static/Rubik-SemiBold.ttf" id="2_sx7ea"]
+[ext_resource type="FontFile" uid="uid://bsdutbrstdio7" path="res://fonts/Rubik/static/Rubik-Medium.ttf" id="3_0sue6"]
+[ext_resource type="AudioStream" uid="uid://x5y6gmlpcrny" path="res://music/select.mp3" id="3_upff1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2wj45"]
+font = ExtResource("2_sx7ea")
+font_size = 32
+font_color = Color(0.368627, 0.921569, 0.968627, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_upjkg"]
+line_spacing = -3.0
+font = ExtResource("3_0sue6")
+font_size = 28
+font_color = Color(0.368627, 0.921569, 0.968627, 1)
+
+[node name="Howto" type="Node2D"]
+script = ExtResource("1_pv3eq")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0.0784314, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 48)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_xoel8")
+
+[node name="Text1" type="Label" parent="."]
+offset_top = 85.0
+offset_right = 640.0
+offset_bottom = 123.0
+text = "How to play"
+label_settings = SubResource("LabelSettings_2wj45")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Text2" type="Label" parent="."]
+offset_top = 129.0
+offset_right = 640.0
+offset_bottom = 299.0
+text = "PathPilot: Enter the route the bee should take and when finished press confirm. The bee should go into the hive. The boxes with the X can be removed by activating the lever. Gems need to be collected.
+
+Zeroed: Place the blocks so the numbers on the field are as close as possible to zero.
+
+NeonRush: Click any key to turn 90°. Enter the goal"
+label_settings = SubResource("LabelSettings_upjkg")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="SelectorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_upff1")
+pitch_scale = 1.35

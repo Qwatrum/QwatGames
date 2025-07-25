@@ -1,11 +1,32 @@
 extends Node2D
+@export var difficulty = 0
 @onready var nextups = [$"NextUp1",$"NextUp2",$"NextUp3"]
 @onready var fields = [$"Fields/F1",$"Fields/F2",$"Fields/F3",$"Fields/F4",$"Fields/F5",$"Fields/F6",$"Fields/F7",$"Fields/F8",$"Fields/F9",$"Fields/F10",$"Fields/F11",$"Fields/F12",$"Fields/F13",$"Fields/F14",$"Fields/F15",$"Fields/F16"]
 @onready var block_node = $"Block"
 
+
+var best_scores
+var save_file_path = "user://save"
+var save_file_name = "DataSaver.tres"
+var data = Data.new()
+func dir_absolute(path):
+	DirAccess.make_dir_absolute(path)
+func load_best_scores():
+	if FileAccess.file_exists(save_file_path + save_file_name):
+		data = ResourceLoader.load(save_file_path + save_file_name)
+		best_scores = data.zeroed_best_scores
+	else:
+		data.update_zeroed_best_scores_all(["/","/","/"])
+		ResourceSaver.save(data, save_file_path + save_file_name)
+		load_best_scores()
+func save_best_scores():
+	data.update_zeroed_best_scores_all(best_scores)
+	ResourceSaver.save(data, save_file_path + save_file_name)
+
 var state = 0 # 0: block selection, 1: block placement
-var values = [7,7,7,7,6,6,6,6,1,1,1,1,2,2,9,9]
-var block_patterns = [[0,1,2,3,0,0,7,9,0],[1,1,1,0,0,0,0,0,0],[0,0,0,0,0,0,0,9,0],[1,1,1,1,1,1,1,1,1]]
+var values = []
+var original_values = values
+var block_patterns = []
 
 var done_count = 0
 
@@ -23,6 +44,9 @@ var min_block_x
 var min_block_y
 
 func _ready():
+	dir_absolute(save_file_path)
+	load_best_scores()
+	print(best_scores)
 	create_field()
 	$"SelectorSound".play()
 	$"Completed".hide()
@@ -124,17 +148,12 @@ func create_block():
 	block_y = 0
 	current_pattern = nextups[block_selector_y].get_pattern()
 	create_max_min_xy()
-	#print(max_block_x)
-	#print(max_block_y)
-	#print(min_block_x)
-	#print(min_block_y)
 	
 	
 	block_node.set_pattern(current_pattern)
 	
 func place_block():
 	var place_pattern = current_pattern
-	print(current_pattern)
 	for i in range(3):
 		for j in range(3):
 			var value = place_pattern[i * 3 + j]
@@ -148,8 +167,6 @@ func place_block():
 				continue
 			
 			var index = field_y * 4 + field_x
-			#print(values[index])
-			#print(value)
 			values[index]-=value
 			fields[index].set_number(values[index])
 	
@@ -157,7 +174,6 @@ func place_block():
 	new_block()
 
 func new_block():
-	
 	if len(block_patterns) != 0:
 		nextups[block_selector_y].set_pattern(block_patterns[0])
 		block_patterns.remove_at(0)
@@ -165,17 +181,72 @@ func new_block():
 	else:
 		done_count += 1
 		if done_count == 3:
-			print("DONE")
 			$"Completed".show()
 			$"BlockSelector".position = Vector2(999,999)
 			$"HSeparator2".hide()
 			$"HSeparator".hide()
 			$"VSeparator".hide()
 			state = 2
-		
+			var score = calculate_score()
+			$"Completed".text += "\n"+score[0]
+			if difficulty == 0:
+				if int(score[1]) < int(best_scores[0]) or str(best_scores[0]) == "/":
+					best_scores[0] = score[1]
+					save_best_scores()
+			elif difficulty == 2:
+				if int(score[1]) < int(best_scores[1]) or str(best_scores[1]) == "/":
+					best_scores[1] = score[1]
+					save_best_scores()
+			elif difficulty == 6:
+				if int(score[1]) < int(best_scores[2]) or str(best_scores[2]) == "/":
+					best_scores[2] = score[1]
+					save_best_scores()
 
 func create_field():
-	var i = 0
-	for e in fields:
-		e.set_number(values[i])
-		i+=1
+	var number_of_blocks = randi_range(3+difficulty,5+difficulty)
+	
+	for i in range(16):
+		values.append(0)
+	for i in range(number_of_blocks):
+		var numbers = []
+		for j in range(9):
+			if randi_range(0,2) == 0:
+				numbers.append(0)
+			else:
+				numbers.append(randi_range(1,10))
+		if numbers.max() == 0:
+			numbers.remove_at(0)
+			numbers.append(randi_range(1,10))
+			numbers.shuffle()
+		block_patterns.append(numbers)
+	
+		var max_x = 1
+		var max_y = 1
+		var rand_x = randi_range(0,1)
+		var rand_y = randi_range(0,1)
+		for y in range(3):
+			for x in range(3):
+				var val = numbers[y*3+x]
+				if val == 0:
+					continue
+				var field_x = rand_x + x
+				var field_y = rand_y + y
+				var index = field_y * 4 + field_x
+				values[index] += val
+		
+
+	for i in range(16):
+		fields[i].set_number(values[i])
+
+
+func calculate_score():
+	var difficulties = ["Easy","","Medium","","","","Hard"]
+	var sum = 0
+	var scores = []
+	var max_abs_value = values.max()
+	for e in values:
+		sum += abs(e)
+	if sum == 0:
+		return ["Perfect!\n100%"+"\n"+difficulties[difficulty]+" mode",0]
+	else:
+		return ["Off-Zero score:\n"+str(sum)+"\n"+difficulties[difficulty]+" mode",sum]

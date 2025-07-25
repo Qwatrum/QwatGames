@@ -56,7 +56,7 @@ func _process(delta):
 			$"SelectorSound".play()
 	if Input.is_action_just_pressed("right"):
 		if selector_y == 0:
-			if selector_x != 3:
+			if selector_x != 2:
 				selector_x += 1
 				$"Selector".position.x += 134
 				$"SelectorSound".play()
