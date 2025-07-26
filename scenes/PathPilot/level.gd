@@ -69,7 +69,7 @@ func done():
 		$"LooseSound".play()
 		$"Player".started = false
 
-func _process(delta):
+func _process(_delta):
 	
 	if Input.is_action_just_pressed("down"):
 		directions.append(Vector2.DOWN)
@@ -90,7 +90,7 @@ func _process(delta):
 			$"Player".started = true
 			$"StartSound".play()
 		else:
-			get_tree().change_scene_to_file("res://scenes/pathpilot/level"+str(level_number)+".tscn")
+			get_tree().change_scene_to_file("res://scenes/PathPilot/level"+str(level_number)+".tscn")
 		
 	if Input.is_action_just_pressed("leave"):
-		get_tree().change_scene_to_file("res://scenes/pathpilot/main.tscn")
+		get_tree().change_scene_to_file("res://scenes/PathPilot/main.tscn")

@@ -23,15 +23,19 @@ position = Vector2(320, 48)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_4r0sa")
 
-[node name="Text1" type="Label" parent="."]
-offset_top = 205.0
-offset_right = 640.0
-offset_bottom = 267.0
-text = "You don't have any achievements yet."
-label_settings = SubResource("LabelSettings_avo7g")
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="SelectorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ye3d5")
 pitch_scale = 1.35
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 11.0
+offset_top = 79.0
+offset_right = 633.0
+offset_bottom = 473.0
+
+[node name="Text1" type="Label" parent="ScrollContainer"]
+layout_mode = 2
+text = "-------------Achievements-------------"
+label_settings = SubResource("LabelSettings_avo7g")
+horizontal_alignment = 1
+vertical_alignment = 2

@@ -6,6 +6,7 @@ extends Node2D
 
 
 var best_scores
+var achievements
 var save_file_path = "user://save"
 var save_file_name = "DataSaver.tres"
 var data = Data.new()
@@ -15,12 +16,16 @@ func load_best_scores():
 	if FileAccess.file_exists(save_file_path + save_file_name):
 		data = ResourceLoader.load(save_file_path + save_file_name)
 		best_scores = data.zeroed_best_scores
+		achievements = data.achievements
 	else:
 		data.update_zeroed_best_scores_all(["/","/","/"])
 		ResourceSaver.save(data, save_file_path + save_file_name)
 		load_best_scores()
 func save_best_scores():
 	data.update_zeroed_best_scores_all(best_scores)
+	ResourceSaver.save(data, save_file_path + save_file_name)
+func save_achievements():
+	data.update_achievements("You scored a perfect game in Zeroed")
 	ResourceSaver.save(data, save_file_path + save_file_name)
 
 var state = 0 # 0: block selection, 1: block placement
@@ -46,7 +51,7 @@ var min_block_y
 func _ready():
 	dir_absolute(save_file_path)
 	load_best_scores()
-	print(best_scores)
+	
 	create_field()
 	$"SelectorSound".play()
 	$"Completed".hide()
@@ -57,7 +62,7 @@ func _ready():
 	block_selector_y = 0
 	
 
-func _process(delta):
+func _process(_delta):
 	
 	if Input.is_action_just_pressed("up"):
 		if state == 0:
@@ -189,6 +194,9 @@ func new_block():
 			state = 2
 			var score = calculate_score()
 			$"Completed".text += "\n"+score[0]
+			if score[1] == 0:
+				if "You scored a perfect game in Zeroed" not in achievements:
+					save_achievements()
 			if difficulty == 0:
 				if int(score[1]) < int(best_scores[0]) or str(best_scores[0]) == "/":
 					best_scores[0] = score[1]

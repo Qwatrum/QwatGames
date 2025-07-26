@@ -9,6 +9,7 @@ func dir_absolute(path):
 func load_scores():
 	if FileAccess.file_exists(save_file_path + save_file_name):
 		data = ResourceLoader.load(save_file_path + save_file_name)
+
 		scores = data.echovector_scores
 	else:
 		data.update_echovector_scores(false)
@@ -24,6 +25,6 @@ func _ready():
 	load_scores()
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("leave"):
 		get_tree().change_scene_to_file("res://scenes/EchoVector/main.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dd2t52jf1ah6h"]
+[gd_scene load_steps=15 format=3 uid="uid://dd2t52jf1ah6h"]
 
 [ext_resource type="Script" path="res://scenes/info/main.gd" id="1_6wfma"]
 [ext_resource type="Texture2D" uid="uid://u274katkmqk8" path="res://assets/title.png" id="2_k3lvw"]
@@ -49,6 +49,10 @@ Panel/styles/panel = SubResource("StyleBoxFlat_p8so4")
 [sub_resource type="LabelSettings" id="LabelSettings_npqu2"]
 font = ExtResource("5_ikb2k")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvoom"]
+font_size = 28
+font_color = Color(0.541176, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6wfma")
@@ -146,3 +150,12 @@ text = "Delete data"
 label_settings = SubResource("LabelSettings_npqu2")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DataGone" type="Label" parent="."]
+visible = false
+offset_left = 381.0
+offset_top = 376.0
+offset_right = 553.0
+offset_bottom = 415.0
+text = "Data deleted"
+label_settings = SubResource("LabelSettings_kvoom")

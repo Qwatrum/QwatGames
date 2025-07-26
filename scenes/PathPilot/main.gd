@@ -39,7 +39,7 @@ func _ready():
 			c.show_completed()
 		x+=1
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("down"):
 		if selector_y != 2:
 			selector_y += 1
@@ -63,7 +63,7 @@ func _process(delta):
 
 	
 	if Input.is_action_just_pressed("confirm"):
-		get_tree().change_scene_to_file("res://scenes/pathpilot/level"+str(buttons[selector_y][selector_x])+".tscn")
+		get_tree().change_scene_to_file("res://scenes/PathPilot/level"+str(buttons[selector_y][selector_x])+".tscn")
 		
 	if Input.is_action_just_pressed("leave"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")

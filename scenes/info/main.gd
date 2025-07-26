@@ -12,6 +12,7 @@ func reset_all_data():
 	data.update_neonrush_time(["-","-","-","-","-"])
 	data.update_completed_levels([])
 	data.update_zeroed_best_scores_all(["/","/","/"])
+	data.achievements = []
 	ResourceSaver.save(data, save_file_path + save_file_name)
 	
 var selector_index = 0
@@ -20,7 +21,7 @@ func _ready():
 	dir_absolute(save_file_path)
 	$"SelectorSound".play()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("leave"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	
@@ -39,4 +40,5 @@ func _process(delta):
 			get_tree().change_scene_to_file("res://scenes/how_to/Howto.tscn")
 		elif selector_index == 1:
 			reset_all_data()
+			$"DataGone".show()
 			$"SelectorSound".play()

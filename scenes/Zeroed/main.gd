@@ -29,7 +29,7 @@ func _ready():
 	$"BestScoreMedium".text = str(best_scores[1])
 	$"BestScoreHard".text = str(best_scores[2])
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("leave"):
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	

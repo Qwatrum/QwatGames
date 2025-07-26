@@ -23,7 +23,7 @@ func save_info_shown():
 var selector_x = 0
 var selector_y = 0
 
-var buttons = [["pathpilot", "zeroed", "neonrush", "echovector"],["achievements", "info"]]
+var buttons = [["PathPilot", "Zeroed", "neonrush", "echovector"],["achievements", "info"]]
 
 func _ready():
 	dir_absolute(save_file_path)
@@ -37,7 +37,7 @@ func _ready():
 	
 	$"SelectorSound".play()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("down"):
 		if selector_x <= 1:
 			if selector_y != 1:

@@ -9,6 +9,8 @@ class_name Data
 
 @export var zeroed_best_scores = ["/","/","/"]
 
+@export var achievements = []
+
 func update_info_shown(update_to):
 	info_shown = update_to
 
@@ -23,3 +25,6 @@ func update_zeroed_best_scores(new_item):
 
 func update_zeroed_best_scores_all(a):
 	zeroed_best_scores = a
+
+func update_achievements(new_one):
+	achievements.append(new_one)
