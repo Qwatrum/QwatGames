@@ -68,3 +68,10 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("confirm"):
 		get_tree().change_scene_to_file("res://scenes/"+buttons[selector_y][selector_x]+"/main.tscn")
+
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		$"Label".show()
+		await get_tree().create_timer(2).timeout
+		$"Label".hide()
